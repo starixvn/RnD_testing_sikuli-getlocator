@@ -1,0 +1,51 @@
+export const setting ={
+     browser: 'chromium',
+     viewport: {
+        // UI
+        width : 1280,
+        height : 720
+    },
+    timeout : 60000,
+    loop : 60,
+    headless: false
+
+}
+
+export const cf_local ={
+    url: "http://gamelobby-simulator.lumigame.com/signin",
+    username: "",
+    memberId: {
+        BlackJack : "1001052",
+        Sedie : "1001052",
+        VipSedie : "1001052",
+        MiniSedie : "1001052",
+        SedieWar : "1001052",
+        Sicbo:  "1001052",
+        Keno:  "1001052",
+        Baccarat:  "1001052",
+        Roulette:  "1001052"
+    },
+    password: "",
+    gamelobbyurl: ""
+}
+
+export const cf_sit ={
+    url: "http://demo:one23@qawer.playthefun.com:5068/login",
+    username: "supertestsaba48",
+    password: "1234aaAA",
+    gamelobbyurl: "http://qawer.playthefun.com:5068/VendorGame/OpenSabaClubLobby"
+}
+
+export const cf_uat ={
+    url: "http://demo:one23@qawer.viva88.com:6100/Login/",
+    username: "IT57Test789",
+    password: "1234aaAA",
+    gamelobbyurl: "http://qawer.viva88.com:6100/VendorGame/OpenSabaClubLobby"
+}
+
+export const cf_prod ={
+    env: "uaprot",
+    url: "",
+    username: "",
+    password: ""
+}
