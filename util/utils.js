@@ -292,7 +292,7 @@ export const swipe = async(__fx, _fy,__tx, _ty,) => {
         await page.mouse.down();
         await sleep(500)
         await page.mouse.move(__tx,  _ty)
-        await sleep(500)
+        await sleep(1000)
         await page.mouse.up()
     } catch (error) {
         console.log('Error '+error.message)
@@ -375,13 +375,13 @@ export const Login = async(_env,_game) => {
         // Navigate Sabaclub from Simulator
         await MemberSiteFunc.login_local(_env,_game)
     }
-    // Verify go to Game Lobby Successfully
-    flag = await GameLobbyFunc.verifyLoginSuccessfully()
-    expect(flag.Val,"Fail on Login GameLobby").to.be.true
-    await sleep(5000)
+    // // Verify go to Game Lobby Successfully
+    // flag = await GameLobbyFunc.verifyLoginSuccessfully()
+    // expect(flag.Val,"Fail on Login GameLobby").to.be.true
+    // await sleep(5000)
 }
 
-export const getLocatorImage = async(img)=> {
+export const getLocatorImage = async(img,_score=0.9)=> {
     try {  
         console.log(img)
         let targetImage = await new ImageTarget(new FileJava(img))
@@ -390,7 +390,7 @@ export const getLocatorImage = async(img)=> {
         while(r === null){
             r = await Java.callMethodSync(screen,"wait",targetImage,60000)
         }
-        while(Java.callMethodSync(r,"getScore")<0.9){
+        while(Java.callMethodSync(r,"getScore")<_score){
             console.log("Score: "+ Java.callMethodSync(r,"getScore"))
             r = await Java.callMethodSync(screen,"wait",targetImage,60000)
         }
@@ -418,7 +418,7 @@ export const genCoordinateByImage = async(img,section,object,extratext=",")=> {
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
         "height : " + info.height + ", " +
-        "ImageCompare" + object + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
+        "ImageCompare : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
         return file
     } catch (error) {
         console.error(error.message);
@@ -435,11 +435,11 @@ export const genCoordinateByImageIndex5 = async(img,section,object,extratext=","
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
         "height : " + info.height + ", " +
-        "ImageCompare" + object + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\", " + 
-        "ImageCompare" + object + "2 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_2.png\", " +
-        "ImageCompare" + object + "3 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_3.png\", " + 
-        "ImageCompare" + object + "4 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_4.png\", " + 
-        "ImageCompare" + object + "5 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_5.png\" }" + extratext + "\n"
+        "ImageCompare1 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_1.png\", " +
+        "ImageCompare2 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_2.png\", " +
+        "ImageCompare3 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_3.png\", " + 
+        "ImageCompare4 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_4.png\", " + 
+        "ImageCompare5 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_5.png\" }" + extratext + "\n"
         return file
     } catch (error) {
         console.error(error.message);
@@ -455,12 +455,12 @@ export const genCoordinateByImageIndex6 = async(img,section,object,extratext=","
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
         "height : " + info.height + ", " +
-        "ImageCompare" + object + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\", " + 
-        "ImageCompare" + object + "2 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_2.png\", " +
-        "ImageCompare" + object + "3 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_3.png\", " + 
-        "ImageCompare" + object + "4 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_4.png\", " +  
-        "ImageCompare" + object + "5 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_5.png\", " + 
-        "ImageCompare" + object + "6 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_6.png\" }" + extratext + "\n"
+        "ImageCompare1 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_1.png\", " +
+        "ImageCompare2 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_2.png\", " +
+        "ImageCompare3 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_3.png\", " + 
+        "ImageCompare4 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_4.png\", " +  
+        "ImageCompare5 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_5.png\", " + 
+        "ImageCompare6 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_6.png\" }" + extratext + "\n"
         return file
     } catch (error) {
         console.error(error.message);
@@ -494,7 +494,7 @@ export const genAllInfoByImage = async(imgCoordinate,imgXY,section,object,extrat
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
         "height : " + info.height + ", " +
-        "ImageCompare" + object + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
+        "ImageCompare : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
         return file
     } catch (error) {
         console.error(error.message);
@@ -513,9 +513,9 @@ export const genAllInfoByImageList = async(imgCoordinate,imgXY,section,object,ar
         "top : " + info.top + ", " +
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
-        "height : " + info.height + ", " 
+        "height : " + info.height 
         arr.forEach(el => {
-            file = file + ", " + "ImageCompare" + object + el + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + el + ".png\""
+            file = file + ", " + "ImageCompare" + el + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + el + ".png\""
         });
         file = file + " }" + extratext + "\n"
         return file
@@ -543,7 +543,7 @@ export const genAllInfoByImageLeftCenter = async(imgCoordinate,imgXY,section,obj
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
         "height : " + info.height + ", " +
-        "ImageCompare" + object + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
+        "ImageCompare : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
         return file
     } catch (error) {
         console.error(error.message);
@@ -569,7 +569,7 @@ export const genAllInfoByImageLeftTop = async(imgCoordinate,imgXY,section,object
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
         "height : " + info.height + ", " +
-        "ImageCompare" + object + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
+        "ImageCompare : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
         return file
     } catch (error) {
         console.error(error.message);
@@ -594,9 +594,9 @@ export const genAllInfoByImageLeftTopList = async(imgCoordinate,imgXY,section,ob
         "top : " + info.top + ", " +
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
-        "height : " + info.height + ", "  
+        "height : " + info.height
         arr.forEach(el => {
-            file = file + ", " + "ImageCompare" + object + el + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + el + ".png\""
+            file = file + ", " + "ImageCompare" + el + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + el + ".png\""
         });
         file = file + " }" + extratext + "\n"
         return file
@@ -624,7 +624,7 @@ export const genAllInfoByImageLeftBot = async(imgCoordinate,imgXY,section,object
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
         "height : " + info.height + ", " +
-        "ImageCompare" + object + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
+        "ImageCompare : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
         return file
     } catch (error) {
         console.error(error.message);
@@ -649,9 +649,9 @@ export const genAllInfoByImageLeftBotList = async(imgCoordinate,imgXY,section,ob
         "top : " + info.top + ", " +
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
-        "height : " + info.height + ", "  
+        "height : " + info.height
         arr.forEach(el => {
-            file = file + ", " + "ImageCompare" + object + el + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + el + ".png\""
+            file = file + ", " + "ImageCompare" + el + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + el + ".png\""
         });
         file = file + " }" + extratext + "\n"
         return file
@@ -678,9 +678,9 @@ export const genAllInfoByImageLeftCenterList = async(imgCoordinate,imgXY,section
         "top : " + info.top + ", " +
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
-        "height : " + info.height + ", "
+        "height : " + info.height
         arr.forEach(el => {
-            file = file + ", " + "ImageCompare" + object + el + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + el + ".png\""
+            file = file + ", " + "ImageCompare" + el + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + el + ".png\""
         });
         file = file + " }" + extratext + "\n"
         return file
@@ -708,7 +708,7 @@ export const genAllInfoByImageCenterRight = async(imgCoordinate,imgXY,section,ob
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
         "height : " + info.height + ", " +
-        "ImageCompare" + object + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
+        "ImageCompare : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
         return file
     } catch (error) {
         console.error(error.message);
@@ -734,7 +734,7 @@ export const genAllInfoByImageRightTop = async(imgCoordinate,imgXY,section,objec
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
         "height : " + info.height + ", " +
-        "ImageCompare" + object + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
+        "ImageCompare : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
         return file
     } catch (error) {
         console.error(error.message);
@@ -759,9 +759,9 @@ export const genAllInfoByImageRightTopList = async(imgCoordinate,imgXY,section,o
         "top : " + info.top + ", " +
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
-        "height : " + info.height + ", " 
+        "height : " + info.height
         arr.forEach(el => {
-            file = file + ", " + "ImageCompare" + object + el + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + el + ".png\""
+            file = file + ", " + "ImageCompare" + el + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + el + ".png\""
         });
         file = file + " }" + extratext + "\n"
         return file
@@ -789,7 +789,7 @@ export const genAllInfoByImageRightBot = async(imgCoordinate,imgXY,section,objec
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
         "height : " + info.height + ", " +
-        "ImageCompare" + object + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
+        "ImageCompare : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
         return file
     } catch (error) {
         console.error(error.message);
@@ -814,9 +814,9 @@ export const genAllInfoByImageRightBotList = async(imgCoordinate,imgXY,section,o
         "top : " + info.top + ", " +
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
-        "height : " + info.height + ", " 
+        "height : " + info.height
         arr.forEach(el => {
-            file = file + ", " + "ImageCompare" + object + el + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + el + ".png\""
+            file = file + ", " + "ImageCompare" + el + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + el + ".png\""
         });
         file = file + " }" + extratext + "\n"
         return file
@@ -843,9 +843,9 @@ export const genAllInfoByImageCenterRightList = async(imgCoordinate,imgXY,sectio
         "top : " + info.top + ", " +
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
-        "height : " + info.height + ", "
+        "height : " + info.height
         arr.forEach(el => {
-            file = file + ", " + "ImageCompare" + object + el + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + el + ".png\""
+            file = file + ", " + "ImageCompare" + el + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + el + ".png\""
         });
         file = file + " }" + extratext + "\n"
         return file
@@ -869,7 +869,7 @@ export const genAllInfoSubImage = async(img,subimg,section,object,extratext=",")
         "left : " + infosub.left + ", " + 
         "width : " + infosub.width + ", " + 
         "height : " + infosub.height + ", " +
-        "ImageCompare" + object + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
+        "ImageCompare : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
         return file
     } catch (error) {
         console.error(error.message);
@@ -889,11 +889,11 @@ export const genAllInfoByImageIndex5 = async(imgCoordinate,imgXY,section,object,
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
         "height : " + info.height + ", " +
-        "ImageCompare" + object + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\", " +
-        "ImageCompare" + object + "2 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_2.png\", " +
-        "ImageCompare" + object + "3 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_3.png\", " +
-        "ImageCompare" + object + "4 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_4.png\", " +
-        "ImageCompare" + object + "5 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_5.png\" }" + extratext + "\n"
+        "ImageCompare1 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_1.png\", " +
+        "ImageCompare2 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_2.png\", " +
+        "ImageCompare3 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_3.png\", " +
+        "ImageCompare4 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_4.png\", " +
+        "ImageCompare5 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_5.png\" }" + extratext + "\n"
         return file
     } catch (error) {
         console.error(error.message);
@@ -913,12 +913,12 @@ export const genAllInfoByImageIndex6 = async(imgCoordinate,imgXY,section,object,
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
         "height : " + info.height + ", " +
-        "ImageCompare" + object + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\", " +
-        "ImageCompare" + object + "2 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_2.png\", " +
-        "ImageCompare" + object + "3 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_3.png\", " +
-        "ImageCompare" + object + "4 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_4.png\", " +
-        "ImageCompare" + object + "5 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_5.png\", " +
-        "ImageCompare" + object + "6 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_6.png\" }" + extratext + "\n"
+        "ImageCompare1 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_1.png\", " +
+        "ImageCompare2 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_2.png\", " +
+        "ImageCompare3 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_3.png\", " +
+        "ImageCompare4 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_4.png\", " +
+        "ImageCompare5 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_5.png\", " +
+        "ImageCompare6 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_6.png\" }" + extratext + "\n"
         return file
     } catch (error) {
         console.error(error.message);
@@ -941,7 +941,7 @@ export const genAllInfoByImageClickPopup = async(imgCoordinate,imgXY,section,obj
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
         "height : " + info.height + ", " +
-        "ImageCompare" + object + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
+        "ImageCompare : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" }" + extratext + "\n"
         return file
     } catch (error) {
         console.error(error.message);
@@ -964,11 +964,11 @@ export const genAllInfoByImageClickPopupIndex5 = async(imgCoordinate,imgXY,secti
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
         "height : " + info.height + ", " +
-        "ImageCompare" + object + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\", " +
-        "ImageCompare" + object + "2 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_2.png\", " +
-        "ImageCompare" + object + "3 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_3.png\", " +
-        "ImageCompare" + object + "4 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_4.png\", " +
-        "ImageCompare" + object + "5 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_5.png\" }" + extratext + "\n"
+        "ImageCompare1 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_1.png\", " +
+        "ImageCompare2 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_2.png\", " +
+        "ImageCompare3 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_3.png\", " +
+        "ImageCompare4 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_4.png\", " +
+        "ImageCompare5 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_5.png\" }" + extratext + "\n"
         return file
     } catch (error) {
         console.error(error.message);
@@ -991,12 +991,12 @@ export const genAllInfoByImageClickPopupIndex6 = async(imgCoordinate,imgXY,secti
         "left : " + info.left + ", " + 
         "width : " + info.width + ", " + 
         "height : " + info.height + ", " +
-        "ImageCompare" + object + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\", " +
-        "ImageCompare" + object + "2 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_2.png\", " +
-        "ImageCompare" + object + "3 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_3.png\", " +
-        "ImageCompare" + object + "4 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_4.png\", " +
-        "ImageCompare" + object + "5 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_5.png\", " +
-        "ImageCompare" + object + "6 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_6.png\" }" + extratext + "\n"
+        "ImageCompare1 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_1.png\", " +
+        "ImageCompare2 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_2.png\", " +
+        "ImageCompare3 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_3.png\", " +
+        "ImageCompare4 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_4.png\", " +
+        "ImageCompare5 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_5.png\", " +
+        "ImageCompare6 : pathImageCompare + \"ImgCompare_"+ section +"_" + object + "_6.png\" }" + extratext + "\n"
         return file
     } catch (error) {
         console.error(error.message);
@@ -1014,7 +1014,7 @@ export const genCoordinateByImageList = async (img,section,object,arr,extratext=
         "width : " + info.width + ", " + 
         "height : " + info.height 
         arr.forEach(el => {
-            file = file + ", " + "ImageCompare" + object + el + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + el + ".png\""
+            file = file + ", " + "ImageCompare" + el + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + el + ".png\""
         });
         file = file + " }" + extratext + "\n"
         return file

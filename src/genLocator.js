@@ -1,6 +1,6 @@
 const pw = require('playwright')
 const path = require('path')
-const theme = "ThemeXuan"
+const theme = "ThemeLLQP"
 const Image = path.join(__dirname,"../") + path.sep + "Image" + path.sep + theme + path.sep
 import { dir } from 'console'
 import * as config from '../config/config'
@@ -34,8 +34,8 @@ describe('Generate Locator For Saba Game', ()=>{
   })
   it('Test', async() => {
     console.log(Image)
-    let obj = '["BlackJack",{"deal":{"roundId":5245,"totalAmount":100,"uid":"5f743e1d4ee13a001163b48f","dealer":[{"rank":"10","suit":3}],"hands":[{"betwin":0,"cards":[{"rank":"J","suit":3},{"rank":"J","suit":3}],"actions":[],"pos":1,"bet":50,"id":317456,"total":[20]},{"betwin":0,"cards":[{"rank":"6","suit":3},{"rank":"2","suit":1}],"actions":[],"pos":3,"bet":50,"id":317455,"total":[8]}]},"endBet":100,"user":{"red":1807,"scoins":0}}]'
-    console.log(jp.query(JSON.parse(obj),'$..hands[?(@.pos=="3")]'))
+    // let obj = '["BlackJack",{"deal":{"roundId":5245,"totalAmount":100,"uid":"5f743e1d4ee13a001163b48f","dealer":[{"rank":"10","suit":3}],"hands":[{"betwin":0,"cards":[{"rank":"J","suit":3},{"rank":"J","suit":3}],"actions":[],"pos":1,"bet":50,"id":317456,"total":[20]},{"betwin":0,"cards":[{"rank":"6","suit":3},{"rank":"2","suit":1}],"actions":[],"pos":3,"bet":50,"id":317455,"total":[8]}]},"endBet":100,"user":{"red":1807,"scoins":0}}]'
+    // console.log(jp.query(JSON.parse(obj),'$..hands[?(@.pos=="3")]'))
   })
  it('Generate GameLobby Locator', async () => {
     await genLocatorGameLobby.writeLocator(Image,theme)

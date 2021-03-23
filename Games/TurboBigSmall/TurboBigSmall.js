@@ -43,28 +43,28 @@ export const "+section+"Locator = { \n"
             // Write Pos Big Locator
             let listChip = ['1','5','10','50','100','200','500','1000']
             object = "PosBig"
-            extFile = extFile + await utils.genAllInfoByImageLeftTopList(
-                Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-                Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-                section,object,listChip)
-            // Write Stake Big Locator
-            object = "StakeBig"
             extFile = extFile + await utils.genAllInfoByImageLeftBotList(
                 Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
                 Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
                 section,object,listChip)
+            // // Write Stake Big Locator
+            // object = "StakeBig"
+            // extFile = extFile + await utils.genAllInfoByImageLeftBotList(
+            //     Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+            //     Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+            //     section,object,listChip)
             // Write Pos Small Locator
             object = "PosSmall"
-            extFile = extFile + await utils.genAllInfoByImageRightTopList(
-                Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-                Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-                section,object,listChip)
-            // Write Stake Small Locator
-            object = "StakeSmall"
             extFile = extFile + await utils.genAllInfoByImageRightBotList(
                 Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
                 Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
                 section,object,listChip)
+            // // Write Stake Small Locator
+            // object = "StakeSmall"
+            // extFile = extFile + await utils.genAllInfoByImageRightBotList(
+            //     Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+            //     Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+            //     section,object,listChip)
 
             // Click on Pos Big to show ChipBroad
             loc = await utils.getLocatorImage(Image + section + path.sep +"ImgCompare_" + section + "_" + "PosBig" + ".png")
@@ -231,53 +231,53 @@ export const "+section+"Locator = { \n"
             await utils.clickPos(loc.x,loc.y)
             await utils.sleep(1000)
 
-            // Write Statistic Locator
-            object = "Statistic"
-            extFile = extFile + await utils.genAllInfoByImageClickPopup(
-                Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-                Image + section + path.sep +"ImgCompare_" + section + "_" + object + "Icon.png",
-                section,object
-            )
+            // // Write Statistic Locator
+            // object = "Statistic"
+            // extFile = extFile + await utils.genAllInfoByImageClickPopup(
+            //     Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+            //     Image + section + path.sep +"ImgCompare_" + section + "_" + object + "Icon.png",
+            //     section,object
+            // )
             
-            // Write Statistic Result Locator
-            object = "StatisticResult"
-            extFile = extFile + await utils.genAllInfoByImage(
-                Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-                Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-                section,object
-            )
+            // // Write Statistic Result Locator
+            // object = "StatisticResult"
+            // extFile = extFile + await utils.genAllInfoByImage(
+            //     Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+            //     Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+            //     section,object
+            // )
 
-            // Write Statistic Point Locator
-            object = "StatisticPoint"
-            extFile = extFile + await utils.genAllInfoByImage(
-                Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-                Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-                section,object
-            )
+            // // Write Statistic Point Locator
+            // object = "StatisticPoint"
+            // extFile = extFile + await utils.genAllInfoByImage(
+            //     Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+            //     Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+            //     section,object
+            // )
             
-            // Write Statistic Left Arrow Locator
-            object = "StatisticLeftArrow"
-            extFile = extFile + await utils.genXYByImage(
-                Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-                object
-            )
+            // // Write Statistic Left Arrow Locator
+            // object = "StatisticLeftArrow"
+            // extFile = extFile + await utils.genXYByImage(
+            //     Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+            //     object
+            // )
 
-            // Write Statistic Right Arrow Locator
-            object = "StatisticRightArrow"
-            extFile = extFile + await utils.genXYByImage(
-                Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-                object
-            )
-            // Write Statistic Close Locator
-            object = "StatisticClose"
-            extFile = extFile + await utils.genXYByImage(
-                Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-                object)
+            // // Write Statistic Right Arrow Locator
+            // object = "StatisticRightArrow"
+            // extFile = extFile + await utils.genXYByImage(
+            //     Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+            //     object
+            // )
+            // // Write Statistic Close Locator
+            // object = "StatisticClose"
+            // extFile = extFile + await utils.genXYByImage(
+            //     Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+            //     object)
             
-            // Close Statistic
-            loc = await utils.getLocatorImage(Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png")
-            await utils.clickPos(loc.x,loc.y)
-            await utils.sleep(1000)
+            // // Close Statistic
+            // loc = await utils.getLocatorImage(Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png")
+            // await utils.clickPos(loc.x,loc.y)
+            // await utils.sleep(1000)
 
             // Write History Locator
             object = "History"

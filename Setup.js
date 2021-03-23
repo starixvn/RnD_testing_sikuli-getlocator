@@ -19,14 +19,14 @@ before(async () => {
     global.isHear = false
     global.balance = parseFloat("0.00")
     global.env = process.env.NODE_ENV || 'cf_local'
-    global.IsRunGameLobby = true
-    global.IsRunBlackJack = true
-    global.IsRunSedie = true
-    global.IsRunVipSedie = true
-    global.IsRunSedieWar = true
+    global.IsRunGameLobby = false
+    global.IsRunBlackJack = false
+    global.IsRunSedie = false
+    global.IsRunVipSedie = false
+    global.IsRunSedieWar = false
     global.IsRunMiniSedie = true
-    global.IsRunBigSmall = true
-    global.IsRunTurboBigSmall = true
-    global.IsRunTurboOddEven = true
+    global.IsRunBigSmall = false
+    global.IsRunTurboBigSmall = false
+    global.IsRunTurboOddEven = false
 })
 

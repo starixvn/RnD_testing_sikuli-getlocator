@@ -43,8 +43,8 @@ export const "+section+"Locator = { \n"
         Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
         section,object)
 
-      // Write Red Choice Locator
-      object = "Red1"
+      // Write White3 Choice Locator
+      object = "White3"
       extFile = extFile + await utils.genAllInfoByImage(
         Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
         Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
@@ -56,11 +56,12 @@ export const "+section+"Locator = { \n"
         Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
         section,object)
       // Write Chip Broad Locator
+      let list = ['1','2']
       object = "ChipBroad"
-      extFile = extFile + await utils.genAllInfoByImage(
+      extFile = extFile + await utils.genAllInfoByImageList(
         Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
         Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-        section,object)
+        section,object,list)
       // Write Left Arrow Locator
       object = "LeftArrow"
       extFile = extFile + await utils.genXYByImage(

@@ -2,7 +2,7 @@ const path = require('path')
 const pathImageCompare = path.join(__dirname,"../") + path.sep + "ImageCompare" + path.sep 
 export const GameLobbyLocator = { 
 	cvGame : "GameCanvas",
-	AccountName : { top : 15, left : 480, width : 80, height : 47, ImageCompareAccountName : pathImageCompare + "ImgCompare_GameLobby_AccountName.png" },
+	AccountName : { top : 15, left : 480, width : 80, height : 47, ImageCompare : pathImageCompare + "ImgCompare_GameLobby_AccountName.png" },
 	VipSedieIcon : { x : 305, y : 274 },
 	SedieIcon : { x : 306, y : 450 },
 	SedieWarIcon : { x : 478, y : 275 },

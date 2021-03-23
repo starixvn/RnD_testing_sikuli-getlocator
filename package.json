@@ -2,7 +2,7 @@
   "name": "node-sikuli",
   "description": "Sikuli for Node.js",
   "scripts": {
-    "test": "mocha --timeout 60000 Games/Sedie/Sedie.js -r @babel/register --file ./Setup.js  --fgrep Full_ --file ./Teardown.js  --reporter mochawesome --reporter-options reportDir=Report"
+    "test": "mocha --timeout 0 src/genLocator.js -r @babel/register --file ./Setup.js  --fgrep Generate --file ./Teardown.js  --reporter mochawesome --reporter-options reportDir=Report"
   },
   "dependencies": {
     "@babel/cli": "^7.8.4",

@@ -67,8 +67,8 @@ export const "+section+"Locator = { \n"
             Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
             section,object)
 
-            // Write Red1 Choice Locator
-            object = "PlayerRed1"
+            // Write White3 Choice Locator
+            object = "PlayerWhite3"
             extFile = extFile + await utils.genAllInfoByImageLeftCenter(
             Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
             Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
@@ -107,8 +107,8 @@ export const "+section+"Locator = { \n"
             Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
             section,object)
 
-            // Write Red1 Choice Locator
-            object = "BankerRed1"
+            // Write White3 Choice Locator
+            object = "BankerWhite3"
             extFile = extFile + await utils.genAllInfoByImageCenterRight(
             Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
             Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",

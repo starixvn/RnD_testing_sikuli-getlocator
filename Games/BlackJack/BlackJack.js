@@ -10,7 +10,7 @@ export const writeLocator = async(Image,theme)=> {
         if(IsRunBlackJack !== false) {
             await utils.setBalance(config[env].memberId[section],100000)
             // swipe right
-            await utils.swipe(config.setting.viewport.width/2, config.setting.viewport.height/2,config.setting.viewport.width/2 - 500, config.setting.viewport.height/2)
+            await utils.swipe(config.setting.viewport.width/2+50, config.setting.viewport.height/2,0, config.setting.viewport.height/2)
             await utils.sleep(1000)
             let loc = await utils.getLocatorImage(Image + "GameLobby" + path.sep +"ImgCompare_" + "GameLobby" + "_" + section +"Icon" + ".png")
             await utils.clickPos(loc.x,loc.y)
@@ -19,8 +19,16 @@ export const writeLocator = async(Image,theme)=> {
             let extFile = "const path = require('path') \n\
 const pathImageCompare = path.join(__dirname,\"../../\") + path.sep + \"ImageCompare\" + path.sep + \""+section+"\" + path.sep\n\
 export const "+section+"Locator = { \n"
+            // Hard code
+            // Write Balance Locator
+            let object = "Balance"
+            extFile = extFile + "\t"+ object +" : { " +
+            "top : 688, left : 170, " + 
+            "width : 105, " + 
+            "height : 25, " +
+            "ImageCompare" + object + " : pathImageCompare + \"ImgCompare_"+ section +"_" + object + ".png\" },\n"
             // Write Odds Locator
-            let object = "Odds"
+            object = "Odds"
             extFile = extFile + await utils.genCoordinateByImage(
             Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
             section,object)
@@ -30,7 +38,7 @@ export const "+section+"Locator = { \n"
             Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
             section,object)
             // Write Total Stake Locator
-            let listChip = ['1','5','10','50','100','200','500','1000']
+            let listChip = ['1','5','10','50','100','200','500','1000','2000']
             object = "Stake"
             extFile = extFile + await utils.genCoordinateByImageList(
             Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
