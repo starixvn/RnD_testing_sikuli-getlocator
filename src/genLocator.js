@@ -1,6 +1,6 @@
 const pw = require('playwright')
 const path = require('path')
-const theme = "ThemeLLQP"
+const theme = "April-2021"
 const Image = path.join(__dirname,"../") + path.sep + "Image" + path.sep + theme + path.sep
 import { dir } from 'console'
 import * as config from '../config/config'
@@ -17,6 +17,7 @@ import * as genLocatorMiniSedie from '../Games/MiniSedie/MiniSedie'
 import * as genLocatorBigSmall from '../Games/BigSmall/BigSmall'
 import * as genLocatorTurboBigSmall from '../Games/TurboBigSmall/TurboBigSmall'
 import * as genLocatorTurboOddEven from '../Games/TurboOddEven/TurboOddEven'
+import * as genLocatorBigSmallSicbo from '../Games/BigSmallSicbo/BigSmallSicbo'
 const jp = require('jsonpath')
 
 describe('Generate Locator For Saba Game', ()=>{
@@ -26,11 +27,11 @@ describe('Generate Locator For Saba Game', ()=>{
   })
 
   afterEach(async function(){
-    if(this.currentTest.state == 'failed'){
-      var __filename = this.currentTest.title.trim()
-      await page.screenshot({ path: `./Report/Pictures/${__filename}.png`});
-      await addContext (this,`./Pictures/${__filename}.png` )
-    }
+    // if(this.currentTest.state == 'failed'){
+    //   var __filename = this.currentTest.title.trim()
+    //   await page.screenshot({ path: `./Report/Pictures/${__filename}.png`});
+    //   await addContext (this,`./Pictures/${__filename}.png` )
+    // }
   })
   it('Test', async() => {
     console.log(Image)
@@ -65,5 +66,8 @@ describe('Generate Locator For Saba Game', ()=>{
   })
   it('Generate Turbo Odd Even Locator', async() => {
     await genLocatorTurboOddEven.writeLocator(Image,theme)
+  })
+  it('Generate BigSmall Sibbo Locator', async() => {
+    await genLocatorBigSmallSicbo.writeLocator(Image,theme)
   })
 })

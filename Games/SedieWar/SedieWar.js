@@ -22,6 +22,18 @@ export const "+section+"Locator = { \n"
             Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
             section,object)
             // For Total choice
+            // Write Player Choice Locator
+            object = "Player"
+            extFile = extFile + await utils.genAllInfoByImage(
+            Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+            Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+            section,object)
+            // Write Banker Choice Locator
+            object = "Banker"
+            extFile = extFile + await utils.genAllInfoByImage(
+            Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+            Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+            section,object)
             // Write Even Choice Locator
             object = "Even"
             extFile = extFile + await utils.genAllInfoByImage(
@@ -117,11 +129,6 @@ export const "+section+"Locator = { \n"
             object = "BankerWhite4"
             extFile = extFile + await utils.genAllInfoByImageCenterRight(
             Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-            Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-            section,object)
-            // Write Balance Locator
-            object = "Balance"
-            extFile = extFile + await utils.genCoordinateByImage(
             Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
             section,object)
             // Write Chip Broad Locator
@@ -231,7 +238,7 @@ export const "+section+"Locator = { \n"
             // Close Guide Popup
             loc = await utils.getLocatorImage(Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png")
             await utils.clickPos(loc.x,loc.y)
-            //end file
+            // end file
             extFile = extFile + "}"
             fs.writeFile(path.join(__dirname,"../../") + path.sep + "ExtractLocator" + path.sep + theme + path.sep + section +"_Locator.js", extFile, 
             function (err) {

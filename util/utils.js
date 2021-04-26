@@ -1047,3 +1047,15 @@ export const setBalance = async(custid,balance=0)=> {
         console.error(error.message);
     }
 }
+
+// Get Text
+export const getText = async(_el) => {
+    try {
+        await page.waitForSelector(_el, { timeout : config.setting.timeout })
+        return await page.innerText(_el)
+    } catch (error) {
+        console.error(error.message);
+        // this.screenFail()
+        await shouldBeEqual(true,false,"Error - get Text")
+    }
+}

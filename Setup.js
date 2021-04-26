@@ -24,9 +24,10 @@ before(async () => {
     global.IsRunSedie = false
     global.IsRunVipSedie = false
     global.IsRunSedieWar = false
-    global.IsRunMiniSedie = true
+    global.IsRunMiniSedie = false
     global.IsRunBigSmall = false
     global.IsRunTurboBigSmall = false
     global.IsRunTurboOddEven = false
+    global.IsRunBigSmallSicbo = true
 })
 
