@@ -1,6 +1,6 @@
 const pw = require('playwright')
 const path = require('path')
-const theme = "April-2021"
+const theme = "Vgaming"
 const Image = path.join(__dirname,"../") + path.sep + "Image" + path.sep + theme + path.sep
 import { dir } from 'console'
 import * as config from '../config/config'
@@ -18,6 +18,12 @@ import * as genLocatorBigSmall from '../Games/BigSmall/BigSmall'
 import * as genLocatorTurboBigSmall from '../Games/TurboBigSmall/TurboBigSmall'
 import * as genLocatorTurboOddEven from '../Games/TurboOddEven/TurboOddEven'
 import * as genLocatorBigSmallSicbo from '../Games/BigSmallSicbo/BigSmallSicbo'
+import * as genLocatorVipFishPrawnCrab from '../Games/VipFishPrawnCrab/VipFishPrawnCrab'
+import * as genLocatorFishPrawnCrab from '../Games/FishPrawnCrab/FishPrawnCrab'
+import * as genLocatorDragonTiger from '../Games/DragonTiger/DragonTiger'
+import * as genLocatorKenoProMax from '../Games/KenoProMax/KenoProMax'
+import * as genLocatorThreeCards from '../Games/ThreeCards/ThreeCards'
+import * as genLocatorVipBaccarat from '../Games/VipBaccarat/VipBaccarat'
 const jp = require('jsonpath')
 
 describe('Generate Locator For Saba Game', ()=>{
@@ -69,5 +75,23 @@ describe('Generate Locator For Saba Game', ()=>{
   })
   it('Generate BigSmall Sibbo Locator', async() => {
     await genLocatorBigSmallSicbo.writeLocator(Image,theme)
+  })
+  it('Generate Vip Fish Prawn Crab Locator', async() => {
+    await genLocatorVipFishPrawnCrab.writeLocator(Image,theme)
+  })
+  it('Generate Fish Prawn Crab Locator', async() => {
+    await genLocatorFishPrawnCrab.writeLocator(Image,theme)
+  })
+  it('Generate Dragon Tiger Locator', async() => {
+    await genLocatorDragonTiger.writeLocator(Image,theme)
+  })
+  it('Generate Keno Pro Max Locator', async() => {
+    await genLocatorKenoProMax.writeLocator(Image,theme)
+  })
+  it('Generate Three Cards Locator', async() => {
+    await genLocatorThreeCards.writeLocator(Image,theme)
+  })
+  it('Generate VipBaccarat Locator', async() => {
+    await genLocatorVipBaccarat.writeLocator(Image,theme)
   })
 })

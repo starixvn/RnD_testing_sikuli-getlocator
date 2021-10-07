@@ -28,6 +28,12 @@ before(async () => {
     global.IsRunBigSmall = false
     global.IsRunTurboBigSmall = false
     global.IsRunTurboOddEven = false
-    global.IsRunBigSmallSicbo = true
+    global.IsRunBigSmallSicbo = false
+    global.IsRunVipFishPrawnCrab = false
+    global.IsRunFishPrawnCrab = true
+    global.IsRunDragonTiger = false
+    global.IsRunKenoProMax = false
+    global.IsRunThreeCards = false
+    global.IsRunVipBaccarat = false
 })
 

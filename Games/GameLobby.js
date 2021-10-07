@@ -21,16 +21,11 @@ export const GameLobbyLocator = { \n\
             extFile = extFile + await utils.genCoordinateByImage(
                 Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
                 section,object)
-            // Write Balance Locator
-            object = "Balance"
-            extFile = extFile + await utils.genCoordinateByImage(
-                Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-                section,object)
             // Write Four Guardians Icon Locator
-            object = "FourGuardiansIcon"
-            extFile = extFile +  await utils.genXYByImage(
-                Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-                object)
+            // let object = "FourGuardiansIcon"
+            // extFile = extFile +  await utils.genXYByImage(
+            //     Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+            //     object)
             // Write Vip Sedie Icon Locator
             object = "VipSedieIcon"
             extFile = extFile +  await utils.genXYByImage(
@@ -51,6 +46,12 @@ export const GameLobbyLocator = { \n\
             extFile = extFile +  await utils.genXYByImage(
                 Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
                 object)
+
+            
+            // swipe right
+            await utils.swipe(config.setting.viewport.width/2 + 100 , config.setting.viewport.height/2, 0, config.setting.viewport.height/2)
+            await utils.sleep(1000)
+
             // Write Big Small Sicbo Icon Locator
             object = "BigSmallSicboIcon"
             extFile = extFile +  await utils.genXYByImage(
@@ -71,6 +72,7 @@ export const GameLobbyLocator = { \n\
             extFile = extFile +  await utils.genXYByImage(
                 Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
                 object)
+            
             // Write Keno ProMax Icon Locator
             object = "KenoProMaxIcon"
             extFile = extFile +  await utils.genXYByImage(
@@ -82,9 +84,6 @@ export const GameLobbyLocator = { \n\
                 Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
                 object)
 
-            // swipe right
-            await utils.swipe(config.setting.viewport.width/2 + 100 , config.setting.viewport.height/2, 0, config.setting.viewport.height/2)
-            await utils.sleep(1000)
 
             // Write Vip Baccarat Icon Locator
             object = "VipBaccaratIcon"
@@ -96,6 +95,13 @@ export const GameLobbyLocator = { \n\
             extFile = extFile +  await utils.genXYByImage(
                 Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
                 object)
+
+            
+            
+            // swipe right
+            await utils.swipe(config.setting.viewport.width/2 + 100 , config.setting.viewport.height/2, 0, config.setting.viewport.height/2)
+            await utils.sleep(1000)
+
             // Write Vip Fish Prawn Crab Icon Locator
             object = "VipFishPrawnCrabIcon"
             extFile = extFile +  await utils.genXYByImage(
@@ -120,7 +126,21 @@ export const GameLobbyLocator = { \n\
             object = "RouletteIcon"
             extFile = extFile +  await utils.genXYByImage(
                 Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
-                object,"") // End file should send "" param
+                object) 
+
+            // Write RNG Lottery Icon Locator
+            object = "RNGLotteryIcon"
+            extFile = extFile +  await utils.genXYByImage(
+                Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+                object) 
+            
+            // Write Three Cards Icon Locator
+            object = "ThreeCardsIcon"
+            extFile = extFile +  await utils.genXYByImage(
+                Image + section + path.sep +"ImgCompare_" + section + "_" + object + ".png",
+                object,"") 
+                
+            // End file should send "" param
 
             //end file
             extFile = extFile + "}"

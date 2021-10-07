@@ -13,7 +13,26 @@ export const setting ={
 
 export const cf_local ={
     // url: "http://gamelobby-simulator.lumigame.com/signin",
-    url: "http://l1-glbs1.lumigame.com/signin",
+    url: "https://l1-glbs1.lumigame.com/signin",
+    urlSimulator: "https://owapi-simulator.lumigame.com",
+    username: "",
+    memberId: {
+        BlackJack : "1001052",
+        Sedie : "1001052",
+        VipSedie : "1001052",
+        MiniSedie : "1001052",
+        SedieWar : "1001052",
+        Sicbo:  "1001052",
+        Keno:  "1001052",
+        Baccarat:  "1001052",
+        Roulette:  "1001052"
+    },
+    password: "",
+    gamelobbyurl: ""
+}
+export const l2_cf_local ={
+    url: "https://l2-glbs.lumigame.com/signin",
+    urlSimulator: "https://l2-ows.lumigame.com/",
     username: "",
     memberId: {
         BlackJack : "1001052",

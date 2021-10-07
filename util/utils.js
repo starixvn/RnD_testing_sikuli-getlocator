@@ -366,7 +366,7 @@ export const wsHearMessageOff = async() => {
 export const Login = async(_env,_game) => {
     await wsHearMessageOff()
     let flag
-    if(_env != 'cf_local') {
+    if(_env !== 'cf_local' && _env !== 'cf_local1' && _env !== 'l2_cf_local') {
         // Login Member Site
         await MemberSiteFunc.login(_env,_game)
         // Navigate Sabaclub
@@ -375,13 +375,13 @@ export const Login = async(_env,_game) => {
         // Navigate Sabaclub from Simulator
         await MemberSiteFunc.login_local(_env,_game)
     }
-    // // Verify go to Game Lobby Successfully
-    // flag = await GameLobbyFunc.verifyLoginSuccessfully()
-    // expect(flag.Val,"Fail on Login GameLobby").to.be.true
-    // await sleep(5000)
+    // Verify go to Game Lobby Successfully
+    flag = await GameLobbyFunc.verifyLoginSuccessfully()
+    expect(flag.Val,"Fail on Login GameLobby").to.be.true
+    await sleep(5000)
 }
 
-export const getLocatorImage = async(img,_score=0.9)=> {
+export const getLocatorImage = async(img,_score=0.8)=> {
     try {  
         console.log(img)
         let targetImage = await new ImageTarget(new FileJava(img))
@@ -1025,8 +1025,9 @@ export const genCoordinateByImageList = async (img,section,object,arr,extratext=
 }
 export const setBalance = async(custid,balance=0)=> {
     try {
+        console.log(config[env].urlSimulator)
         request({
-            url: "http://owapi-simulator.lumigame.com/SabaClub/CreateCustomer?memId=4839058",
+            url: `${config[env].urlSimulator}/SabaClub/CreateCustomer?memId=4839058`,
             body: 'ObCustId='+custid+'&Balance='+balance,
             method: "POST",
             headers: {
